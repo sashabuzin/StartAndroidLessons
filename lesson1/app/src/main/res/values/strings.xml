@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">lesson1</string>
+    <string name="MainText">Мой первый проект</string>
+    <string name="MainEditText">Введите текст тут</string>
+    <string name="GoToTwoActivity">Перейти на второй экран</string>
+    <string name="AnotherText">Любой текст</string>
+    <string name="FIO">ФИО</string>
+    <string name="TelephoneNumber">Телефонный номер</string>
+    <string name="Numbers">Цифры</string>
+    <string name="Password">Пароль</string>
+    <string name="email">email</string>
 </resources>
