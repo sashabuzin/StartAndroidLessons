@@ -165,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
                 process = editText.getText().toString();
 
                 process = process.replaceAll("%","/100");
+
+                editText.setText("");
                 pointCount = 0;
             }
         });
