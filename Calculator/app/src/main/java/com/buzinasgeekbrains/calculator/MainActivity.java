@@ -19,8 +19,13 @@ public class MainActivity extends AppCompatActivity {
     TextView editText, resultText;
 
     String process = "";
+    double firstParam = (double) 0.0;
+    double secondParam = (double) 0.0;
 
-    int pointCount = 0;
+    boolean useArithmeticSymbol = false;
+    boolean pointUse = false;
+
+    String arithmeticSymbol = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,116 +63,203 @@ public class MainActivity extends AppCompatActivity {
 
         button0.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "0");
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "0");
+
+            } else {
+                secondParam = Double.parseDouble(secondParam + "0");
+                editText.setText(process + "0");
+            }
         });
 
         button1.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "1");
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "1");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "1");
+                editText.setText(process + "1");
+            }
         });
 
         button2.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "2");
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "2");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "2");
+                editText.setText(process + "2");
+            }
         });
 
         button3.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "3");
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "3");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "3");
+                editText.setText(process + "3");
+            }
         });
 
         button4.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "4");
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "4");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "4");
+                editText.setText(process + "4");
+            }
         });
 
         button5.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "5");
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "5");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "5");
+                editText.setText(process + "5");
+            }
         });
 
         button6.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "6");
+
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "6");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "6");
+                editText.setText(process + "6");
+            }
         });
 
         button7.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "7");
+
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "7");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "7");
+                editText.setText(process + "7");
+            }
         });
 
         button8.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "8");
+
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "8");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "8");
+                editText.setText(process + "8");
+            }
         });
 
         button9.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "9");
+
+            if (!useArithmeticSymbol) {
+                editText.setText(process + "9");
+            } else {
+                secondParam = Double.parseDouble(secondParam + "9");
+                editText.setText(process + "9");
+            }
         });
 
         buttonClear.setOnClickListener(v -> {
             editText.setText("");
             resultText.setText("");
-            pointCount = 0;
+            pointUse = false;
+            useArithmeticSymbol = false;
         });
 
         buttonDivision.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "/");
+            if (!useArithmeticSymbol) {
+                firstParam = Double.parseDouble(process);
+                arithmeticSymbol = "/";
+                editText.setText(firstParam + arithmeticSymbol);
+
+                useArithmeticSymbol = true;
+
+            }
+
         });
 
         buttonMultiplication.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "*");
+            if (!useArithmeticSymbol) {
+                firstParam = Double.parseDouble(process);
+                arithmeticSymbol = "*";
+                editText.setText(firstParam + arithmeticSymbol);
+                useArithmeticSymbol = true;
+            }
         });
 
         buttonPercent.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "%");
+            if (!useArithmeticSymbol) {
+                firstParam = Double.parseDouble(process);
+                arithmeticSymbol = "%";
+                editText.setText(firstParam + arithmeticSymbol);
+                useArithmeticSymbol = true;
+            }
         });
 
         buttonDelete.setOnClickListener(v -> {
             process = editText.getText().toString();
-            if (process.length() == 1) pointCount = 0;
+            if (process.length() == 1) pointUse = false;
             if (process.length() > 0) {
                 editText.setText(process.substring(0, process.length() - 1));
-                if (!editText.getText().toString().equals(".")) pointCount = 0;
+                if (!editText.getText().toString().equals(".")) pointUse = false;
 
             }
         });
 
         buttonPlus.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "+");
+            if (!useArithmeticSymbol) {
+                firstParam = Double.parseDouble(process);
+                arithmeticSymbol = "+";
+                editText.setText(firstParam + arithmeticSymbol);
+                useArithmeticSymbol = true;
+            }
         });
 
         buttonMinus.setOnClickListener(v -> {
             process = editText.getText().toString();
-            editText.setText(process + "-");
+            if (!useArithmeticSymbol) {
+                firstParam = Double.parseDouble(process);
+                arithmeticSymbol = "-";
+                editText.setText(firstParam + arithmeticSymbol);
+                useArithmeticSymbol = true;
+            }
         });
 
         buttonPoint.setOnClickListener(v -> {
                 process = editText.getText().toString();
                 if(process.length() == 0) {
                     editText.setText(process + "0.");
-                    pointCount++;
+                    pointUse = true;
                 }
-                if (pointCount == 0) {
+                if (pointUse) {
                     editText.setText(process + ".");
-                    pointCount++;
+                    pointUse = true;
                 }
         });
 
         buttonResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                process = editText.getText().toString();
-
-                process = process.replaceAll("%","/100");
-
-                editText.setText("");
-                pointCount = 0;
+//                process = firstParam + arithmeticSymbol + secondParam;
+                if (arithmeticSymbol.equals("%")) {
+                    arithmeticSymbol = "/100";
+                }
+                resultText.setText(firstParam + arithmeticSymbol + secondParam);
+                pointUse = false;
+                useArithmeticSymbol = false;
+                arithmeticSymbol = "";
+                editText.setText(firstParam + arithmeticSymbol + secondParam);
             }
         });
     }
