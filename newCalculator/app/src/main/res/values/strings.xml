@@ -19,4 +19,6 @@
     <string name="_0">0</string>
     <string name="_dot">.</string>
     <string name="btn_settings">settings</string>
+    <string name="light_theme">Светлая тема</string>
+    <string name="dark_theme">Тёмная тема</string>
 </resources>

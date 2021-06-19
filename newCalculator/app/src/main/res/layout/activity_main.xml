@@ -236,7 +236,5 @@
                 style="@style/MyButtonStyle"/>
         </TableRow>
 
-
-
     </TableLayout>
 </FrameLayout>
