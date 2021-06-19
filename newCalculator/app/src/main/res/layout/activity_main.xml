@@ -1,18 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/nightstar"
+        android:scaleType="centerCrop"
+        android:contentDescription=""/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/memField"
+                style="@style/myTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="end" />
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/calcField"
+                style="@style/myTextViewStyle"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_c"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_c"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_division"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/division"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_multiply"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_x"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_del"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/erase"
+                style="@style/MyButtonStyle"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_7"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_7"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_8"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_8"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_9"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_9"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_minus"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/minus"
+                style="@style/MyButtonStyle"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_4"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_4"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_5"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_5"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_6"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_6"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_plus"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/plus"
+                style="@style/MyButtonStyle"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_1"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_1"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_2"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_3"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_equal"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/equal"
+                style="@style/MyButtonStyle"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_0"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_0"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_dot"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/_dot"
+                style="@style/MyButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_settings"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/btn_settings"
+                style="@style/MyButtonStyle"/>
+        </TableRow>
+
+
+
+    </TableLayout>
+</FrameLayout>
