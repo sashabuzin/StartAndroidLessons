@@ -51,7 +51,7 @@
     </style>
 
     <style name="AppThemeDark" parent="Theme.MaterialComponents.Light.DarkActionBar">
-
+        
     </style>
 
 </resources>
