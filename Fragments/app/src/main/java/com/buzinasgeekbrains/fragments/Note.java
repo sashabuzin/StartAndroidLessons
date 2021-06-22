@@ -7,20 +7,20 @@ import java.util.Date;
 
 public class Note implements Parcelable {
     private String name;
-    private String Description;
+    private String description;
     private Date date;
     private String text;
 
-    public Note(String name, String description, Date date, String text) {
+    public Note(String name, String description, String text) {
         this.name = name;
-        Description = description;
-        this.date = date;
+        this.description = description;
+        this.date = getDate();
         this.text = text;
     }
 
     protected Note(Parcel in) {
         name = in.readString();
-        Description = in.readString();
+        description = in.readString();
         text = in.readString();
     }
 
@@ -45,11 +45,11 @@ public class Note implements Parcelable {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        description = description;
     }
 
     public Date getDate() {
@@ -77,7 +77,7 @@ public class Note implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
-        dest.writeString(Description);
+        dest.writeString(description);
         dest.writeString(text);
     }
 

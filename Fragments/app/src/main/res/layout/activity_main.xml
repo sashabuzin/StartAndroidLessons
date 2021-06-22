@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="6"
+        android:layout_weight="8"
         android:text="@string/title_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,35 +28,18 @@
         android:layout_weight="1"
         >
 
+        <fragment
+            android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.buzinasgeekbrains.fragments.FragmentNote"/>
+
 
 
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="6"
-        android:orientation="horizontal"
-        >
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/btn_note1"
-            android:layout_weight="1"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/btn_note2"
-            android:layout_weight="1"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/btn_note3"
-            android:layout_weight="1"/>
-    </LinearLayout>
 
 
 
