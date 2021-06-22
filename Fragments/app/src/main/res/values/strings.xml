@@ -4,4 +4,10 @@
     <string name="btn_note1">Заметка 1</string>
     <string name="btn_note2">Заметка 2</string>
     <string name="btn_note3">Заметка 3</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="noteName">Title</string>
+    <string name="noteDescription">description</string>
+    <string name="noteDate">Date</string>
+    <string name="noteText">Text</string>
 </resources>
