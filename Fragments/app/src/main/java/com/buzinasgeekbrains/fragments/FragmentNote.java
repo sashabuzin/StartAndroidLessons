@@ -45,10 +45,10 @@ public class FragmentNote extends Fragment {
 
     public void onShowDetails(int index) {
 
-//        Intent intent = new Intent();
-//        intent.setClass(getActivity(), NoteActivity.class);
-//        intent.putExtra(FragmentDetails.ARG_INDEX, index);
-//        startActivity(intent);
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), NoteActivity.class);
+        intent.putExtra(FragmentDetails.ARG_INDEX, index);
+        startActivity(intent);
     }
 
     public void createNotes() {

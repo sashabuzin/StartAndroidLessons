@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.textview.MaterialTextView;
 
@@ -25,34 +27,34 @@ public class FragmentDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details, container, false);
-//        View view = inflater.inflate(R.layout.fragment_details, container, false);
-//        MaterialTextView notesFrag = view.findViewById(R.id.textName);
-//        TypedArray images = getResources().obtainTypedArray(R.array.properties);
-//        notesFrag.setText(images.getResourceId(index, -1));
-//        return view;
+//        return inflater.inflate(R.layout.fragment_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_details, container, false);
+        MaterialTextView notesFrag = view.findViewById(R.id.textName);
+        TypedArray images = getResources().obtainTypedArray(R.array.properties);
+        notesFrag.setText(images.getResourceId(index, -1));
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        initList(view);
-//        Intent intent = new Intent();
-//        intent.getExtras();
+        initList(view);
+        Intent intent = new Intent();
+        intent.getExtras();
 
     }
 
 
 
-//    private void initList(View view) {
-//        LinearLayout layoutView = (LinearLayout) view;
-//        String[] properties = getResources().getStringArray(R.array.properties);
-//        for(int i=0; i < properties.length; i++){
-//            String prop = properties[i];
-//            TextView pr = new TextView(getContext());
-//            pr.setText(prop);
-//            pr.setTextSize(30);
-//            layoutView.addView(pr);
-//        }
-//    }
+    private void initList(View view) {
+        LinearLayout layoutView = (LinearLayout) view;
+        String[] properties = getResources().getStringArray(R.array.properties);
+        for(int i=0; i < properties.length; i++){
+            String prop = properties[i];
+            TextView pr = new TextView(getContext());
+            pr.setText(prop);
+            pr.setTextSize(30);
+            layoutView.addView(pr);
+        }
+    }
 }
