@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_text_size">50sp</dimen>
+    <dimen name="edit_text_view">70sp</dimen>
+    <dimen name="result_text_view">50sp</dimen>
+    <dimen name="edit_text_view_margin">20dp</dimen>
+    <dimen name="btn_margin">5dp</dimen>
+    <dimen name="last_linear_layout_margin">10dp</dimen>
+</resources>
