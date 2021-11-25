@@ -1,0 +1,19 @@
+com/buzinasgeekbrains/newcalculator/BuildConfig.java
+ com.buzinasgeekbrains.newcalculator.BuildConfig
+com/buzinasgeekbrains/newcalculator/CalcOperation.java
+ com.buzinasgeekbrains.newcalculator.CalcOperation
+ com.buzinasgeekbrains.newcalculator.CalcOperation$1
+ com.buzinasgeekbrains.newcalculator.CalcOperation$2
+ com.buzinasgeekbrains.newcalculator.CalcOperation$3
+ com.buzinasgeekbrains.newcalculator.CalcOperation$4
+ com.buzinasgeekbrains.newcalculator.CalcOperation$5
+com/buzinasgeekbrains/newcalculator/SettingsActivity.java
+ com.buzinasgeekbrains.newcalculator.SettingsActivity
+com/buzinasgeekbrains/newcalculator/MainActivity.java
+ com.buzinasgeekbrains.newcalculator.MainActivity
+com/buzinasgeekbrains/newcalculator/Calculator.java
+ com.buzinasgeekbrains.newcalculator.Calculator
+ com.buzinasgeekbrains.newcalculator.Calculator$1
+ com.buzinasgeekbrains.newcalculator.Calculator$2
+com/buzinasgeekbrains/newcalculator/Theme.java
+ com.buzinasgeekbrains.newcalculator.Theme
