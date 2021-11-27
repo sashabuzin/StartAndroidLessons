@@ -2,19 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/filebackgroud"
-    android:layout_gravity="bottom"
-
-    >
+    android:layout_gravity="bottom">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="@dimen/result_text_view"
+        android:textSize="@dimen/result_text_view_land"
         android:gravity="end"
         android:layout_margin="@dimen/btn_margin"/>
 
@@ -23,14 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="@dimen/edit_text_view"
+        android:textSize="@dimen/edit_text_view_land"
         android:layout_marginEnd="@dimen/edit_text_view_margin"
         android:layout_margin="@dimen/btn_margin"
         android:gravity="end"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
         <Button
@@ -39,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_clear"/>
         <Button
             android:id="@+id/button_division"
@@ -47,7 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_division"/>
         <Button
             android:id="@+id/button_multiple"
@@ -55,7 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_multiple"/>
         <Button
             android:id="@+id/button_delete"
@@ -63,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_delete"/>
     </LinearLayout>
     <LinearLayout
@@ -76,7 +74,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="7"/>
         <Button
             android:id="@+id/button_8"
@@ -84,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="8"/>
         <Button
             android:id="@+id/button_9"
@@ -92,7 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="9"/>
         <Button
             android:id="@+id/button_percent"
@@ -100,7 +98,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_percent"/>
     </LinearLayout>
     <LinearLayout
@@ -113,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="4"/>
         <Button
             android:id="@+id/button_5"
@@ -121,7 +119,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="5"/>
         <Button
             android:id="@+id/button_6"
@@ -129,7 +127,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="6"/>
         <Button
             android:id="@+id/button_minus"
@@ -137,7 +135,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_minus"/>
     </LinearLayout>
     <LinearLayout
@@ -150,7 +148,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="1"/>
         <Button
             android:id="@+id/button_2"
@@ -158,7 +156,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="2"/>
         <Button
             android:id="@+id/button_3"
@@ -166,7 +164,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="3"/>
         <Button
             android:id="@+id/button_plus"
@@ -174,7 +172,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_plus"/>
     </LinearLayout>
     <LinearLayout
@@ -188,7 +186,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_point"/>
         <Button
             android:id="@+id/button_0"
@@ -196,17 +194,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/btn_text_size"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_zero"/>
         <Button
             android:id="@+id/button_result"
             android:layout_margin="@dimen/btn_margin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2.06"
-            android:textSize="@dimen/btn_text_size"
+            android:layout_weight="2.02"
+            android:textSize="@dimen/btn_text_size_land"
             android:text="@string/btn_result"/>
     </LinearLayout>
 
 
-    </LinearLayout>
+</LinearLayout>

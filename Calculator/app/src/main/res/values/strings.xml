@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="btn_delete"><![CDATA[<]]></string>
+    <string name="btn_multiple">X</string>
+    <string name="btn_result">=</string>
+    <string name="btn_zero">0</string>
+    <string name="btn_point">.</string>
+    <string name="btn_plus">+</string>
+    <string name="btn_minus">-</string>
+    <string name="btn_plus">+</string>
+    <string name="btn_percent">%</string>
+    <string name="btn_division">/</string>
+    <string name="btn_clear">C</string>
 </resources>
