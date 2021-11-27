@@ -6,8 +6,8 @@
     <dimen name="edit_text_view_margin">10dp</dimen>
     <dimen name="btn_margin">3dp</dimen>
     <dimen name="last_linear_layout_margin">10dp</dimen>
-    <dimen name="result_text_view_land">35dp</dimen>
-    <dimen name="edit_text_view_land">40sp</dimen>
+    <dimen name="result_text_view_land">25dp</dimen>
+    <dimen name="edit_text_view_land">30sp</dimen>
     <dimen name="text_view_marginend_land">120dp</dimen>
     <dimen name="btn_text_size_land">23sp</dimen>
     <dimen name="last_linear_layout_margin_land">170dp</dimen>
