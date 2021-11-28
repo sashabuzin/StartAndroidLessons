@@ -10,4 +10,6 @@
     <string name="btn_percent">%</string>
     <string name="btn_division">/</string>
     <string name="btn_clear">C</string>
+    <string name="btn_change_theme">Темы</string>
+    <string name="apply_set_theme">Применить</string>
 </resources>
