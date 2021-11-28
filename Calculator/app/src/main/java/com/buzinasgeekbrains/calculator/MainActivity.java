@@ -1,23 +1,45 @@
 package com.buzinasgeekbrains.calculator;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Calculator calculator = new Calculator();
+    Calculator calculator;
 
+
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initInterface();
+        calculator = new Calculator();
+        initView();
+
     }
 
-    private void initInterface() {
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle instanceState) {
+        super.onSaveInstanceState(instanceState);
+        instanceState.putParcelable("KeyCalc", calculator);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        calculator = savedInstanceState.getParcelable("KeyCalc");
+    }
+
+    public void initView() {
         TextView resultText = findViewById(R.id.textViewResult);
         TextView editText = findViewById(R.id.textViewEdit);
         Button btnPoint = findViewById(R.id.button_point);
@@ -39,5 +61,68 @@ public class MainActivity extends AppCompatActivity {
         Button btnDivision = findViewById(R.id.button_division);
         Button btnMultiple = findViewById(R.id.button_multiple);
         Button btnDelete = findViewById(R.id.button_delete);
+
+        btnPoint.setOnClickListener(v -> {
+            calculator.addPoint();
+            Toast.makeText(getApplicationContext(), calculator.tempText, Toast.LENGTH_SHORT).show();
+        });
+        btnZero.setOnClickListener(v -> {
+            calculator.addSymbol(0D);
+        });
+        btn1.setOnClickListener(v -> {
+            calculator.addSymbol(1D);
+        });
+        btn2.setOnClickListener(v -> {
+            calculator.addSymbol(2D);
+        });
+        btn3.setOnClickListener(v -> {
+            calculator.addSymbol(3D);
+        });
+        btn4.setOnClickListener(v -> {
+            calculator.addSymbol(4D);
+        });
+        btn5.setOnClickListener(v -> {
+            calculator.addSymbol(5D);
+        });
+        btn6.setOnClickListener(v -> {
+            calculator.addSymbol(6D);
+        });
+        btn7.setOnClickListener(v -> {
+            calculator.addSymbol(7D);
+        });
+        btn8.setOnClickListener(v -> {
+            calculator.addSymbol(8D);
+        });
+        btn9.setOnClickListener(v -> {
+            calculator.addSymbol(9D);
+        });
+        btnPercent.setOnClickListener(v -> {
+            calculator.percent();
+        });
+        btnPlus.setOnClickListener(v -> {
+            calculator.editSymbol(MatchSymbols.PLUS);
+        });
+        btnMinus.setOnClickListener(v -> {
+            calculator.editSymbol(MatchSymbols.MINUS);
+        });
+        btnDivision.setOnClickListener(v -> {
+            calculator.editSymbol(MatchSymbols.DIVISION);
+        });
+        btnMultiple.setOnClickListener(v -> {
+            calculator.editSymbol(MatchSymbols.MULTIPLE);
+        });
+        btnDelete.setOnClickListener(v -> {
+            calculator.delete(editText);
+        });
+        btnResult.setOnClickListener(v -> {
+            calculator.result(resultText);
+        });
+        btnClear.setOnClickListener(v -> {
+            calculator.clear();
+        });
     }
+
+
+
+
 }
