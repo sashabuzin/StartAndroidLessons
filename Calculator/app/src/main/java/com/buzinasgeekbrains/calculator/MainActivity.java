@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -21,10 +23,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(loadAppTheme());
         setContentView(R.layout.activity_main);
         calculator = new Calculator();
         initView();
 
+    }
+
+    private int loadAppTheme() {
+        int codeTheme = getSharedPreferences(ChangeThemeActivity.PREFERENCES_NAME, MODE_PRIVATE).getInt(ChangeThemeActivity.THEME_NAME, ChangeThemeActivity.AppThemeDefault);
+        return ChangeThemeActivity.codeStyleToStyleId(codeTheme);
     }
 
     @Override
@@ -40,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initView() {
+        Button btnEditTheme = findViewById(R.id.button_editTheme);
         TextView resultText = findViewById(R.id.textViewResult);
         TextView editText = findViewById(R.id.textViewEdit);
         Button btnPoint = findViewById(R.id.button_point);
@@ -61,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
         Button btnDivision = findViewById(R.id.button_division);
         Button btnMultiple = findViewById(R.id.button_multiple);
         Button btnDelete = findViewById(R.id.button_delete);
+
+        btnEditTheme.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ChangeThemeActivity.class);
+//            getTheme().toString();
+//            intent.putExtra(getTheme(), );
+            startActivity(intent);
+        });
 
         btnPoint.setOnClickListener(v -> {
             calculator.addPoint();
