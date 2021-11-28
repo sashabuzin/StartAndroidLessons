@@ -10,7 +10,7 @@
     >
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -19,7 +19,7 @@
         android:layout_margin="@dimen/btn_margin"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
