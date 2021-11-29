@@ -9,95 +9,156 @@ import androidx.annotation.RequiresApi;
 
 public class Calculator implements Parcelable {
 
-    private String resultText = "0.00";
-    private String editTextBeforeMathSymbol = "0.00";
-    private String editTextAfterMathSymbol = "0.00";
-    public String tempText ="";
+    private String resultText = "";
+    private String editTextBeforeMathSymbol = "";
+    private Double editTextAfterMathSymbol = 0.00D;
+    private String tempText ="";
     private boolean isUsedMathSymbol = false;
     private double tempComputation = 0.00D;
-    private String matchSymbol = MatchSymbols.DEFAULT.toString();
+    private MatchSymbols matchSymbol = MatchSymbols.PLUS;
+
 
     public Calculator (){
 
     };
 
-    private double addition (double a, double b) {
-        return Math.round(((a + b)* 100)/100D);
+    public void addition (TextView view) {
+        if (!isUsedMathSymbol) {
+            isUsedMathSymbol = true;
+            editSymbol(MatchSymbols.PLUS);
+            tempComputation = Double.parseDouble(tempText);
+            editTextBeforeMathSymbol = tempText + "+";
+            view.setText(editTextBeforeMathSymbol);
+            clearTempText();
+        }
+
+
     }
 
-    private double subtraction (double a, double b) {
-
-        return Math.round(((a - b)* 100)/100D);
+    public void subtraction (TextView view) {
+        if (!isUsedMathSymbol) {
+            isUsedMathSymbol = true;
+            editSymbol(MatchSymbols.MINUS);
+            tempComputation = Double.parseDouble(tempText);
+            editTextBeforeMathSymbol = tempText + " - ";
+            view.setText(editTextBeforeMathSymbol);
+            clearTempText();
+        }
+//        return Math.round(((a - b)* 100)/100D);
     }
 
-    private double multiple (double a, double b) {
-        double roundOffA = Math.round(a*100)/100D;
-        double roundOffB = Math.round(b*100)/100D;
-        return Math.round(((roundOffA*roundOffB) * 100)/100D);
+    public void multiple (TextView view) {
+        if (!isUsedMathSymbol) {
+            isUsedMathSymbol = true;
+            editSymbol(MatchSymbols.MULTIPLE);
+            tempComputation = Double.parseDouble(tempText);
+            editTextBeforeMathSymbol = tempText + "*";
+            view.setText(editTextBeforeMathSymbol);
+            clearTempText();
+        }
     }
 
-    private double division (double a, double b) {
-        double roundOffA = Math.round(a*100)/100D;
-        double roundOffB = Math.round(b*100)/100D;
-        return Math.round(((roundOffA/roundOffB) * 100)/100D);
+    public void division (TextView view) {
+        if (!isUsedMathSymbol) {
+            isUsedMathSymbol = true;
+            editSymbol(MatchSymbols.DIVISION);
+            tempComputation = Double.parseDouble(tempText);
+            editTextBeforeMathSymbol = tempText + "/";
+            view.setText(editTextBeforeMathSymbol);
+            clearTempText();
+        }
     }
 
-    public void percent () {
+    public void percent (TextView view) {
         tempText = String.valueOf(Math.round(((Integer.valueOf(tempText)/100)*100)/100D));
     }
 
     public void delete (TextView v) {
 //        if ()
-        this.tempText = tempText.substring(0, tempText.length() - 1);
+        tempText = tempText.substring(0, tempText.length() - 1);
         v.setText(tempText);
     }
 
-    public void clear () {
-        defaultState();
+    public void clear (TextView e, TextView r) {
+        defaultState(e, r);
+
     }
 
-    private void defaultState() {
-        this.resultText = "0.00";
-        this.editTextBeforeMathSymbol = "0.00";
-        this.editTextAfterMathSymbol = "0.00";
-        this.tempComputation = 0.00D;
-        this.tempText = "";
-        this.matchSymbol = "";
+    private void defaultState(TextView e, TextView r) {
+        this.resultText = "";
+        this.editTextBeforeMathSymbol = "";
+        this.editTextAfterMathSymbol = 0D;
+        clearTempText();
+        this.isUsedMathSymbol = false;
+        this.tempComputation = 0D;
+        this.matchSymbol = MatchSymbols.DEFAULT;
+        e.setText("0");
+        r.setText("0");
+
     }
 
-    public void addSymbol (double a) {
-        this.tempText = tempText + String.valueOf((int)a);
+    public void addSymbol (double a, TextView view) {
+        this.tempText = tempText + (int) a;
+        view.setText(editTextBeforeMathSymbol + tempText);
     }
 
-    public void addPoint () {
-        if (tempText.indexOf(".") < 0) {
+    public void addPoint (TextView view) {
+        if (tempText.length() == 0) {
+            this.tempText = "0.";
+
+        } else if (tempText.indexOf(".") < 0) {
             this.tempText = tempText + ".";
         }
+        view.setText(editTextBeforeMathSymbol + tempText);
+
 
     }
 
-    public void editSymbol (MatchSymbols s) {
-        this.matchSymbol = s.toString();
+    private void editSymbol (MatchSymbols s) {
+        this.matchSymbol = s;
+    }
+    public void beforeResult (TextView v) {
+        result(v, this.matchSymbol);
     }
 
-    public void result (TextView v) {
+    public void result (TextView v, MatchSymbols matchSymbol) {
+        editTextAfterMathSymbol = Double.parseDouble(tempText);
         switch (matchSymbol) {
-            case ("PLUS") :
-                resultText = String.valueOf(Double.valueOf(editTextBeforeMathSymbol) + Double.valueOf(editTextBeforeMathSymbol));
+            case (PLUS) :
+                resultText = String.valueOf(tempComputation + editTextAfterMathSymbol);
                 v.setText(resultText);
+                clearAfterResult();
             case ("MINUS"):
-                resultText = String.valueOf(Double.valueOf(editTextBeforeMathSymbol) - Double.valueOf(editTextBeforeMathSymbol));
+                resultText = String.valueOf(tempComputation - editTextAfterMathSymbol);
                 v.setText(resultText);
+                clearAfterResult();
             case ("MULTIPLE"):
-                resultText = String.valueOf(Double.valueOf(editTextBeforeMathSymbol) * Double.valueOf(editTextBeforeMathSymbol));
+                resultText = String.valueOf(tempComputation * editTextAfterMathSymbol);
                 v.setText(resultText);
+                clearAfterResult();
             case ("DIVISION"):
-                resultText = String.valueOf(Double.valueOf(editTextBeforeMathSymbol) / Double.valueOf(editTextBeforeMathSymbol));
+                resultText = String.valueOf(tempComputation / editTextAfterMathSymbol);
                 v.setText(resultText);
+                clearAfterResult();
+            case ("DEFAULT"):
+                v.setText("default");
             default:
-                throw new IllegalStateException("Unexpected value: " + matchSymbol);
+                return;
         }
 
+    }
+
+    private void clearAfterResult() {
+        this.editTextBeforeMathSymbol = "";
+        this.editTextAfterMathSymbol = 0D;
+        clearTempText();
+        this.isUsedMathSymbol = false;
+        this.tempComputation = 0D;
+        this.matchSymbol = MatchSymbols.DEFAULT;
+    }
+
+    private void clearTempText() {
+        this.tempText = "";
     }
 
     public static final Creator<Calculator> CREATOR = new Creator<Calculator>() {
@@ -117,13 +178,15 @@ public class Calculator implements Parcelable {
     Calculator(Parcel in) {
         resultText = in.readString();
         editTextBeforeMathSymbol = in.readString();
-        editTextAfterMathSymbol = in.readString();
+        editTextAfterMathSymbol = in.readDouble();
         tempText = in.readString();
         isUsedMathSymbol = in.readBoolean();
         tempComputation = in.readDouble();
-        matchSymbol = in.readString();
+        matchSymbol = in.readTypedObject(CREATOR);
 
     }
+
+
 
     @Override
     public int describeContents() {

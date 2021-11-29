@@ -22,7 +22,7 @@
         android:id="@+id/textViewResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textViewValue"
         android:textSize="@dimen/result_text_view"
         android:gravity="end"
         android:layout_margin="@dimen/btn_margin"/>
@@ -31,7 +31,7 @@
         android:id="@+id/textViewEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textViewValue"
         android:textSize="@dimen/edit_text_view"
         android:layout_marginEnd="@dimen/edit_text_view_margin"
         android:layout_margin="@dimen/btn_margin"

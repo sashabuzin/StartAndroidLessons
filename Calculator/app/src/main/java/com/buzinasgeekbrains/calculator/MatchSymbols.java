@@ -8,7 +8,8 @@ public enum MatchSymbols {
     MINUS,
     MULTIPLE,
     DIVISION,
-    DEFAULT;
+    DEFAULT
+
 
 
 }

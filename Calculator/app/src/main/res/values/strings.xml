@@ -12,4 +12,5 @@
     <string name="btn_clear">C</string>
     <string name="btn_change_theme">Темы</string>
     <string name="apply_set_theme">Применить</string>
+    <string name="textViewValue">0</string>
 </resources>
