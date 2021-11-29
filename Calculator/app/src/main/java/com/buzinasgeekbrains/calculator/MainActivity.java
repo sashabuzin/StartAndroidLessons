@@ -79,62 +79,61 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnPoint.setOnClickListener(v -> {
-            calculator.addPoint();
-            Toast.makeText(getApplicationContext(), calculator.tempText, Toast.LENGTH_SHORT).show();
+            calculator.addPoint(editText);
         });
         btnZero.setOnClickListener(v -> {
-            calculator.addSymbol(0D);
+            calculator.addSymbol(0D, editText);
         });
         btn1.setOnClickListener(v -> {
-            calculator.addSymbol(1D);
+            calculator.addSymbol(1D, editText);
         });
         btn2.setOnClickListener(v -> {
-            calculator.addSymbol(2D);
+            calculator.addSymbol(2D, editText);
         });
         btn3.setOnClickListener(v -> {
-            calculator.addSymbol(3D);
+            calculator.addSymbol(3D, editText);
         });
         btn4.setOnClickListener(v -> {
-            calculator.addSymbol(4D);
+            calculator.addSymbol(4D, editText);
         });
         btn5.setOnClickListener(v -> {
-            calculator.addSymbol(5D);
+            calculator.addSymbol(5D, editText);
         });
         btn6.setOnClickListener(v -> {
-            calculator.addSymbol(6D);
+            calculator.addSymbol(6D, editText);
         });
         btn7.setOnClickListener(v -> {
-            calculator.addSymbol(7D);
+            calculator.addSymbol(7D, editText);
         });
         btn8.setOnClickListener(v -> {
-            calculator.addSymbol(8D);
+            calculator.addSymbol(8D, editText);
         });
         btn9.setOnClickListener(v -> {
-            calculator.addSymbol(9D);
+            calculator.addSymbol(9D, editText);
         });
         btnPercent.setOnClickListener(v -> {
-            calculator.percent();
+            calculator.percent(editText);
         });
         btnPlus.setOnClickListener(v -> {
-            calculator.editSymbol(MatchSymbols.PLUS);
+            calculator.addition(editText);
         });
         btnMinus.setOnClickListener(v -> {
-            calculator.editSymbol(MatchSymbols.MINUS);
+            calculator.subtraction(editText);
         });
         btnDivision.setOnClickListener(v -> {
-            calculator.editSymbol(MatchSymbols.DIVISION);
+            calculator.division(editText);
         });
         btnMultiple.setOnClickListener(v -> {
-            calculator.editSymbol(MatchSymbols.MULTIPLE);
+            calculator.multiple(editText);
         });
         btnDelete.setOnClickListener(v -> {
             calculator.delete(editText);
         });
         btnResult.setOnClickListener(v -> {
-            calculator.result(resultText);
+            calculator.beforeResult(resultText);
         });
         btnClear.setOnClickListener(v -> {
-            calculator.clear();
+            calculator.clear(editText, resultText);
         });
     }
 
