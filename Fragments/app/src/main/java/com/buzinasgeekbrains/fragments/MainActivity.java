@@ -3,7 +3,7 @@ package com.buzinasgeekbrains.fragments;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
+//          Задание:
 //        1. Почитайте документацию методов requireActivity(), requireContext(), getActivity(),
 //        getContext() и объясните разницу между ними;
 //        2. Создайте класс данных со структурой заметок: название заметки, описание заметки,
@@ -23,5 +23,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_1, new NotesListFragment())
+                .commit();
     }
 }
