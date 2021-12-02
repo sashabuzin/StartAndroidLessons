@@ -61,17 +61,24 @@ public class NotesListFragment extends Fragment {
     void showDescription(int position) {
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container_1, NoteDetailFragment.newInstance(position))
-                    .addToBackStack(null)
-                    .commit();
+            showDescriptionPort(position);
         } else {
-            requireActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container_2, NoteDetailFragment.newInstance(position))
-                    .commit();
+            showDescriptionLand(position);
         }
 
+    }
+
+    void showDescriptionLand(int position) {
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_2, NoteDetailFragment.newInstance(position))
+                .commit();
+    }
+    void showDescriptionPort(int position) {
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_1, NoteDetailFragment.newInstance(position))
+                .addToBackStack(null)
+                .commit();
     }
 }

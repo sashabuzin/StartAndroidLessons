@@ -27,18 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_container_1, new NotesListFragment())
                         .commit();
-            } else {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container_1, new NotesListFragment())
-                        .replace(R.id.fragment_container_2, new NoteDetailFragment())
-                        .commit();
-            }
     }
 
     @Override
