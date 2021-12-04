@@ -1,23 +1,19 @@
 package com.buzinasgeekbrains.fragments;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.res.Configuration;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 //          Задание:
-//        1. Почитайте документацию методов requireActivity(), requireContext(), getActivity(),
-//        getContext() и объясните разницу между ними;
-//        2. Создайте класс данных со структурой заметок: название заметки, описание заметки,
-//        дата создания и т. п.
-//        3. Создайте фрагмент для вывода этих данных.
-//        4. Встройте этот фрагмент в активити. У вас должен получиться экран с заметками,
-//        который мы будем улучшать с каждым новым уроком.
-//        5. Добавьте фрагмент, в котором открывается заметка. По аналогии с примером из урока:
-//        если нажать на элемент списка в портретной ориентации — открывается новое окно,
-//        если нажать в ландшафтной — окно открывается рядом.
-//        6. * Разберитесь, как можно сделать, и сделайте корректировку даты создания при
-//        помощи DatePicker.
+//        1. Создайте боковое навигационное меню для своего приложения и добавьте туда хотя бы
+//        один экран, например «Настройки» или «О приложении».
+//        2. * Создайте полноценный заголовок для NavigationDrawer’а. К примеру, аватарка
+//        пользователя, его имя и какая-то дополнительная информация.
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,11 +22,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        initToolbar();
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_container_1, new NotesListFragment())
                         .commit();
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_about) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack("")
+                    .replace(R.id.fragment_container_1, new AboutFragment()).commit();
+            return true;
+        } else if (id == R.id.action_exit)  {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

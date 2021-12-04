@@ -8,6 +8,10 @@
         <entry key="..\:/StartAndroidLessons/Fragments/app/src/main/res/layout/activity_main.xml" value="0.1935185185185185" />
         <entry key="..\:/StartAndroidLessons/Fragments/app/src/main/res/layout/fragment_note_detail.xml" value="0.25" />
         <entry key="..\:/StartAndroidLessons/Fragments/app/src/main/res/layout/fragment_notes_list.xml" value="0.25" />
+        <entry key="..\:/StartAndroidLessons/Fragments/app/src/main/res/menu/menu.xml" value="0.25" />
+        <entry key="..\:/StartAndroidLessons/Fragments/app/src/main/res/menu/menu_drawer.xml" value="0.25" />
+        <entry key="..\:/StartAndroidLessons/Fragments/app/src/main/res/menu/menu_drawer_header.xml" value="0.25" />
+        <entry key="..\:/StartAndroidLessons/Fragments/app/src/main/res/menu/popup.xml" value="0.25" />
       </map>
     </option>
   </component>
