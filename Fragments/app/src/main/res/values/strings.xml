@@ -5,4 +5,7 @@
     <string name="exit">Выход</string>
     <string name="about">About app</string>
     <string name="clear">Очистить</string>
+    <string name="drawer_header">image_mail</string>
+    <string name="navigation_draver_open">navigation_draver_open</string>
+    <string name="navigation_draver_close">navigation_draver_close</string>
 </resources>
