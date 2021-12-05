@@ -6,6 +6,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.res.Configuration;
 import android.graphics.drawable.GradientDrawable;
@@ -14,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.buzinasgeekbrains.fragments.ui.NetworkFragment;
 import com.google.android.material.navigation.NavigationView;
 //          Задание:
 //        1. Используйте уведомления или диалоговые окна в своем приложении. К примеру, перед
@@ -30,11 +34,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initToolbar();
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container_1, new NotesListFragment())
-                        .commit();
+//                getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment_container_1, new NotesListFragment())
+//                        .commit();
+        addFragment(NetworkFragment.newInstance());
     }
+
+    private void addFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container_1, fragment)
+                .addToBackStack(null)
+                .commit();
+
+    }
+
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -66,12 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this)
                         .setMessage("Вы точно хотите выйти из приложения?")
                         .setTitle("Подтвердите действие")
-                        .setPositiveButton("Yes", (dialog, which) -> {
-                            finish();
-                        })
-                        .setNegativeButton("No", (dialog, which) -> {
-                            Toast.makeText(this, "Вы остались в приложении", Toast.LENGTH_SHORT).show();
-                        }).show();
+                        .setPositiveButton("Yes", (dialog, which) -> finish())
+                        .setNegativeButton("No", (dialog, which) -> Toast.makeText(this, "Вы остались в приложении", Toast.LENGTH_SHORT).show()).show();
 
                 return true;
             }
@@ -97,14 +108,11 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_exit)  {
 
             new AlertDialog.Builder(this)
+                    .setCancelable(false)
                     .setMessage("Вы точно хотите выйти из приложения?")
                     .setTitle("Подтвердите действие")
-                    .setPositiveButton("Yes", (dialog, which) -> {
-                        finish();
-                    })
-                    .setNegativeButton("No", (dialog, which) -> {
-                        Toast.makeText(this, "Вы остались в приложении", Toast.LENGTH_SHORT).show();
-                    }).show();
+                    .setPositiveButton("Yes", (dialog, which) -> finish())
+                    .setNegativeButton("No", (dialog, which) -> Toast.makeText(this, "Вы остались в приложении", Toast.LENGTH_SHORT).show()).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
