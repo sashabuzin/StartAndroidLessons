@@ -56,12 +56,13 @@ public class NetworkAdapter extends RecyclerView.Adapter<NetworkAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = (TextView) itemView;
+            textView = (TextView) itemView.findViewById(R.id.textView);
             textView.setOnClickListener(v -> {
                 if (itemClickListener != null) {
                     itemClickListener.onItemClick(v, getAdapterPosition());
                 }
             });
+
         }
 
         public TextView getTextView() {
