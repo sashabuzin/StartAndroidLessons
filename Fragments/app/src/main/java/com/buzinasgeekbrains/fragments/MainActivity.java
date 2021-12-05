@@ -2,6 +2,7 @@ package com.buzinasgeekbrains.fragments;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -11,13 +12,15 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 //          Задание:
-//        1. Создайте боковое навигационное меню для своего приложения и добавьте туда хотя бы
-//        один экран, например «Настройки» или «О приложении».
-//        2. * Создайте полноценный заголовок для NavigationDrawer’а. К примеру, аватарка
-//        пользователя, его имя и какая-то дополнительная информация.
+//        1. Используйте уведомления или диалоговые окна в своем приложении. К примеру, перед
+//          выходом из приложения уточните у пользователя в диалоговом окне, действительно ли он
+//          хочет это сделать. И отображайте Toast при закрытии приложения.
+//        2. * Возвращайте данные из диалога в активити через интерфейс, но не передавая интерфейс
+//          через отдельный метод фрагмента, а приводя контекст к типу этого интерфейса.
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +63,16 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
                 return true;
             } else if (id == R.id.action_exit)  {
-                finish();
+                new AlertDialog.Builder(this)
+                        .setMessage("Вы точно хотите выйти из приложения?")
+                        .setTitle("Подтвердите действие")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            finish();
+                        })
+                        .setNegativeButton("No", (dialog, which) -> {
+                            Toast.makeText(this, "Вы остались в приложении", Toast.LENGTH_SHORT).show();
+                        }).show();
+
                 return true;
             }
             return false;
@@ -83,7 +95,16 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container_1, new AboutFragment()).commit();
             return true;
         } else if (id == R.id.action_exit)  {
-            finish();
+
+            new AlertDialog.Builder(this)
+                    .setMessage("Вы точно хотите выйти из приложения?")
+                    .setTitle("Подтвердите действие")
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        finish();
+                    })
+                    .setNegativeButton("No", (dialog, which) -> {
+                        Toast.makeText(this, "Вы остались в приложении", Toast.LENGTH_SHORT).show();
+                    }).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
