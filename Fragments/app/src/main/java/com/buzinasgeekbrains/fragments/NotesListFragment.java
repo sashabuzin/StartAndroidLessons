@@ -45,16 +45,25 @@ public class NotesListFragment extends Fragment {
     private void initView(View view) {
 
         LinearLayout linearLayout = (LinearLayout) view;
+        LayoutInflater ltInflater = getLayoutInflater();
         for(int i = 0; i < Notes.listNotes.size(); i++) {
+
             Notes notes = Notes.listNotes.get(i);
-            TextView textView = new TextView(getContext());
-            textView.setText(notes.getName());
-            textView.setTextSize(30);
+            View item = ltInflater.inflate(R.layout.item, linearLayout, false);
+            TextView tv = item.findViewById(R.id.textView);
+            tv.setText(notes.getName());
+            linearLayout.addView(item);
+
             final int position = i;
-            textView.setOnClickListener(v -> {
-                showDescription(position);
-            });
-            linearLayout.addView(textView);
+            tv.setOnClickListener(v -> showDescription(position));
+//            TextView textView = new TextView(getContext());
+//            textView.setText(notes.getName());
+//            textView.setTextSize(30);
+//            final int position = i;
+//            textView.setOnClickListener(v -> {
+//                showDescription(position);
+//            });
+//            linearLayout.addView(textView);
         }
     }
 
