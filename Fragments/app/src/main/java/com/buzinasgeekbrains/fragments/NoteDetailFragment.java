@@ -127,5 +127,9 @@ public class NoteDetailFragment extends Fragment {
         if (item != null) {
             item.setVisible(false);
         }
-    }
+        MenuItem itemAdd = menu.findItem(R.id.action_add);
+        if (itemAdd != null) {
+            itemAdd.setVisible(false);
+        }
+        }
 }
