@@ -3,10 +3,12 @@ package com.buzinasgeekbrains.fragments.ui;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,6 +33,7 @@ public class NetworkFragment extends Fragment {
     private NotesSourceImpl note;
     private NetworkAdapter adapter;
     private RecyclerView recyclerView;
+
     
     public NetworkFragment() {
     }
@@ -90,7 +93,7 @@ public class NetworkFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new NetworkAdapter(note.getDataSource());
+        adapter = new NetworkAdapter(note.getDataSource(), this);
         recyclerView.setAdapter(adapter);
 
         adapter.setOnItemClickListener((view, position) -> {
@@ -104,5 +107,31 @@ public class NetworkFragment extends Fragment {
                 .replace(R.id.fragment_container_1, NoteDetailFragment.newInstance(position))
                 .addToBackStack(null)
                 .commit();
+    }
+
+    @Override
+    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = requireActivity().getMenuInflater();
+        inflater.inflate(R.menu.card_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        int position = adapter.getMenuPosition();
+        int id = item.getItemId();
+        if (id == R.id.action_update) {
+            note.updateCardData(position,
+            new Notes("Заглушка для изменения заметки " + position,
+            note.getCardData(position).getDescription()
+            ));
+            adapter.notifyItemChanged(position);
+            return true;
+        } else if (id == R.id.action_delete) {
+            note.deleteCardData(position);
+            adapter.notifyItemRemoved(position);
+            return true;
+        }
+        return super.onContextItemSelected(item);
     }
 }
