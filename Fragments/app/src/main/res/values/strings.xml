@@ -8,4 +8,7 @@
     <string name="drawer_header">image_mail</string>
     <string name="navigation_draver_open">navigation_draver_open</string>
     <string name="navigation_draver_close">navigation_draver_close</string>
+    <string name="add">Добавить</string>
+    <string name="update">Изменить</string>
+    <string name="delete">Удалить</string>
 </resources>

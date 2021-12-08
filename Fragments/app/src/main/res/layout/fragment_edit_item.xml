@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/edit_fragment_main_frame"
+    tools:context=".EditItemFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/note_detail_edit_frag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment" />
+
+    <LinearLayout
+        android:id="@+id/edit_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/note_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Новое имя заметки"/>
+        <EditText
+            android:id="@+id/note_edit_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Новое описание заметки"/>
+        <Button
+            android:id="@+id/button_confirm_edit_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Изменить заметку"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -20,11 +20,12 @@ import android.widget.Toast;
 import com.buzinasgeekbrains.fragments.ui.NetworkFragment;
 import com.google.android.material.navigation.NavigationView;
 //          Задание:
-//        1. Используйте уведомления или диалоговые окна в своем приложении. К примеру, перед
-//          выходом из приложения уточните у пользователя в диалоговом окне, действительно ли он
-//          хочет это сделать. И отображайте Toast при закрытии приложения.
-//        2. * Возвращайте данные из диалога в активити через интерфейс, но не передавая интерфейс
-//          через отдельный метод фрагмента, а приводя контекст к типу этого интерфейса.
+//        1. Сделайте фрагмент добавления и редактирования данных, если вы ещё не сделали его.
+//        2. Сделайте навигацию между фрагментами, также организуйте обмен данными между
+//          фрагментами.
+//        3. Создайте контекстное меню для изменения и удаления заметок.
+//        4. *Изучите, каким образом можно вызывать DatePicker в виде диалогового окна. Создайте
+//          текстовое поле, при нажатии на которое вызывалось бы диалоговое окно с DatePicker.
 
 public class MainActivity extends AppCompatActivity {
 
@@ -90,11 +91,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
