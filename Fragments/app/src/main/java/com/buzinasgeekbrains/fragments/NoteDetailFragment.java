@@ -32,11 +32,6 @@ public class NoteDetailFragment extends Fragment {
     public NoteDetailFragment() {
     }
 
-    public NoteDetailFragment(int position) {
-    }
-
-
-    // TODO: Rename and change types and number of parameters
     public static NoteDetailFragment newInstance(int position) {
         NoteDetailFragment fragment = new NoteDetailFragment();
         Bundle args = new Bundle();
@@ -50,8 +45,6 @@ public class NoteDetailFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putInt(ARG_POSITION, position);
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

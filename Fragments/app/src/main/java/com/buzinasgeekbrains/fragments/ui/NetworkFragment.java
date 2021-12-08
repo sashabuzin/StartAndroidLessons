@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.buzinasgeekbrains.fragments.EditItemFragment;
 import com.buzinasgeekbrains.fragments.NoteDetailFragment;
 import com.buzinasgeekbrains.fragments.Notes;
 import com.buzinasgeekbrains.fragments.NotesSourceImpl;
@@ -117,6 +118,14 @@ public class NetworkFragment extends Fragment {
                 .commit();
     }
 
+    private void showEditDataFragment(int position) {
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_1, EditItemFragment.newInstance(position, note))
+                .addToBackStack(null)
+                .commit();
+    }
+
     @Override
     public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -129,11 +138,12 @@ public class NetworkFragment extends Fragment {
         int position = adapter.getMenuPosition();
         int id = item.getItemId();
         if (id == R.id.action_update) {
-            note.updateCardData(position,
-            new Notes("Заглушка для изменения заметки " + position,
-            note.getCardData(position).getDescription()
-            ));
-            adapter.notifyItemChanged(position);
+            showEditDataFragment(position);
+//            note.updateCardData(position,
+//            new Notes("Заглушка для изменения заметки " + position,
+//            note.getCardData(position).getDescription()
+//            ));
+//            adapter.notifyItemChanged(position);
             return true;
         } else if (id == R.id.action_delete) {
             note.deleteCardData(position);

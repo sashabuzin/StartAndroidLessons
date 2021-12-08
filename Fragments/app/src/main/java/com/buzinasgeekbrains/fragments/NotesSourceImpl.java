@@ -1,11 +1,29 @@
 package com.buzinasgeekbrains.fragments;
 
 import android.content.res.Resources;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotesSourceImpl implements NotesSource {
+public class NotesSourceImpl implements NotesSource, Parcelable {
+    protected NotesSourceImpl(Parcel in) {
+        dataSource = in.createTypedArrayList(Notes.CREATOR);
+    }
+
+    public static final Creator<NotesSourceImpl> CREATOR = new Creator<NotesSourceImpl>() {
+        @Override
+        public NotesSourceImpl createFromParcel(Parcel in) {
+            return new NotesSourceImpl(in);
+        }
+
+        @Override
+        public NotesSourceImpl[] newArray(int size) {
+            return new NotesSourceImpl[size];
+        }
+    };
+
     public List<Notes> getDataSource() {
         return dataSource;
     }
@@ -53,5 +71,15 @@ public class NotesSourceImpl implements NotesSource {
     @Override
     public void clearCardData() {
         dataSource.clear();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(dataSource);
     }
 }

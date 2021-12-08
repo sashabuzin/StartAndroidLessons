@@ -10,6 +10,15 @@ import java.util.List;
 public class Notes implements Parcelable {
 
     public static List<Notes> listNotes = new ArrayList<>();
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     private String name;
     private String description;
     private Date date;
