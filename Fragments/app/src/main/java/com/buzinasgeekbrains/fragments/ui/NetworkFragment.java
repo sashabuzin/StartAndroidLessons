@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +31,7 @@ import com.buzinasgeekbrains.fragments.R;
  */
 public class NetworkFragment extends Fragment {
 
+    private static final int MY_DEFAULT_DURATION = 100;
     private NotesSourceImpl note;
     private NetworkAdapter adapter;
     private RecyclerView recyclerView;
@@ -77,7 +79,7 @@ public class NetworkFragment extends Fragment {
         if (id == R.id.action_add) {
             note.addCardData(new Notes("Заголовок " + note.size(), "Описание " + note.size()));
             adapter.notifyItemInserted(note.size() - 1);
-            recyclerView.scrollToPosition(note.size() - 1);
+            recyclerView.smoothScrollToPosition(note.size() - 1);
             return true;
         } else if (id == R.id.action_clear) {
             note.clearCardData();
@@ -96,8 +98,14 @@ public class NetworkFragment extends Fragment {
         adapter = new NetworkAdapter(note.getDataSource(), this);
         recyclerView.setAdapter(adapter);
 
+        DefaultItemAnimator animator = new DefaultItemAnimator();
+        animator.setAddDuration(MY_DEFAULT_DURATION);
+        animator.setRemoveDuration(MY_DEFAULT_DURATION);
+        recyclerView.setItemAnimator(animator);
+
         adapter.setOnItemClickListener((view, position) -> {
             showDescription(position);
+
         });
     }
 
